@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "BootAnimation.h"
+#import "GlobalModel.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +18,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    /**
+     window初始化
+     */
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    ViewController *vc = [[ViewController alloc]init];
+    UINavigationController * navi   = [[UINavigationController alloc]initWithRootViewController:vc];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
+    
+    
+    [[BootAnimation shared] starVideo:[GlobalModel returnVideoURL]];
+//    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:vc];
+//    self.window.rootViewController = navi;
+    
     return YES;
 }
 
